@@ -72,7 +72,7 @@ class Config(object):
     CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
     VERIFICATION_TOKEN = os.environ.get("VERIFICATION_TOKEN")
     OAUTH_ACCESS_TOKEN = os.environ.get("OAUTH_ACCESS_TOKEN")
-    BOT_USER_ACCESS_TOKEN = os.environ.get("BOT_USER_ACCESS_TOKEN")
+    BOT_API_TOKEN = os.environ.get("BOT_API_TOKEN")
     TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
     TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
     TWILIO_NUMBER = os.environ.get("TWILIO_NUMBER")

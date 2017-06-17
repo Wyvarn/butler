@@ -9,6 +9,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 
+
 # initialize objects of flask extensions that will be used and then initialize the application
 # once the flask object has been created and initialized. 1 caveat for this is that when
 #  configuring Celery, the broker will remain constant for all configurations
@@ -16,8 +17,8 @@ db = SQLAlchemy()
 mail = Mail()
 
 
-# todo: change flask app name
-class MyFlaskApp(Flask):
+
+class ButlerApp(Flask):
     """
     Custom application class subclassing Flask application. This is to ensure more modularity in
      terms of static files and templates. This way a module will have its own templates and the
@@ -60,7 +61,7 @@ def create_app(config_name):
     :return: a new WSGI Flask app
     :rtype: Flask
     """
-    app = MyFlaskApp()
+    app = ButlerApp()
 
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
@@ -114,8 +115,11 @@ def error_handlers(app):
         """
 
 
-def register_app_blueprints(app):
+def register_app_blueprints(app_):
     """
     Registers the application blueprints
-    :param app: the current flask app
+    :param app_: the current flask app
     """
+    from app.mod_bot import bot
+
+    app_.register_blueprint(bot)
