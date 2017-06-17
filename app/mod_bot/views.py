@@ -1,3 +1,8 @@
+"""
+Routes for bot
+
+ref=> https://www.twilio.com/blog/2016/05/build-sms-slack-bot-python.html
+"""
 from . import bot
 from slackclient import SlackClient
 from twilio import twiml
@@ -9,7 +14,7 @@ slack_client = SlackClient(os.environ.get("BOT_API_TOKEN", None))
 twilio_client = Client()
 
 
-@bot.route("/twilio", methods=["POST"])
+@bot.route("/twilio", methods=["POST", "GET"])
 def twilio_post():
     """
     Handles Twilio post requests. This post request will come from Twilio
@@ -18,12 +23,11 @@ def twilio_post():
     response = twiml.TwiML()
     if request.form['From'] == current_app.config.get("USER_NUMBER"):
         message = request.form['Body']
-        slack_client.api_call("chat.postMessage", channel="#general",
-                              text=message, username='butlerbot', icon_emoji=':robot_face:')
+        slack_client.api_call("im.open", text=message, user='lusinabrian')
     return Response(response.to_xml(), mimetype="text/xml"), 200
 
 
-@bot.route("/slack", methods=["POST"])
+@bot.route("/slack", methods=["POST", "GET"])
 def slack_post():
     """
     This will handle post requests from Slack. This post request will come from Slack

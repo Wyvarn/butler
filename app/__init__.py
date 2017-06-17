@@ -3,19 +3,16 @@
 This defines the application module that essentially creates a new flask app object
 """
 import jinja2
-import os
-from config import config, Config
+from config import config
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
-
 
 # initialize objects of flask extensions that will be used and then initialize the application
 # once the flask object has been created and initialized. 1 caveat for this is that when
 #  configuring Celery, the broker will remain constant for all configurations
 db = SQLAlchemy()
 mail = Mail()
-
 
 
 class ButlerApp(Flask):
@@ -67,18 +64,18 @@ def create_app(config_name):
     config[config_name].init_app(app)
 
     # initialize the db
-    db.init_app(app)
+    # db.init_app(app)
 
     # initialize flask mail
-    mail.init_app(app)
+    # mail.init_app(app)
 
-    error_handlers(app)
     register_app_blueprints(app)
-    app_request_handlers(app)
-    app_logger_handler(app)
+    # error_handlers(app)
+    # app_request_handlers(app)
+    # app_logger_handler(app)
 
     # this will reduce the load time for templates and increase the application performance
-    app.jinja_env.cache = {}
+    # app.jinja_env.cache = {}
 
     return app
 
@@ -90,6 +87,7 @@ def app_request_handlers(app):
     database that is currently in use
     :param app: the current flask app
     """
+    pass
 
 
 def app_logger_handler(app):
@@ -98,6 +96,7 @@ def app_logger_handler(app):
     later be accessed.
     :param app: current flask application
     """
+    pass
 
 
 def error_handlers(app):
@@ -113,6 +112,7 @@ def error_handlers(app):
         :return: a template instructing user they have sent a request that does not exist on
          the server
         """
+        return error
 
 
 def register_app_blueprints(app_):
@@ -121,5 +121,7 @@ def register_app_blueprints(app_):
     :param app_: the current flask app
     """
     from app.mod_bot import bot
+    from app.mod_home import home
 
+    app_.register_blueprint(home)
     app_.register_blueprint(bot)

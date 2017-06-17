@@ -34,7 +34,6 @@ class Config(object):
 
     __abstract__ = True
     __metaclass__ = ABCMeta
-    SSL_DISABLE = False
 
     # configure flask secret key
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'flask_app'
@@ -44,7 +43,7 @@ class Config(object):
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
     SQLALCHEMY_TRACK_MODIFICATIONS = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     DATABASE_CONNECT_OPTIONS = {}
 
     SECURITY_PASSWORD_SALT = os.environ.get("SECURITY_PASSWORD_SALT") or 'precious_arco'
@@ -62,13 +61,14 @@ class Config(object):
 
     # gmail authentication
     MAIL_SUBJECT_PREFIX = '[Arco]'
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    #MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    #MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MAIL_SENDER = 'Admin <arcoadmin@arco.com>'
-    MAIL_DEFAULT_SENDER = os.environ.get("MAIL_DEFAULT_SENDER")
+    # MAIL_DEFAULT_SENDER = os.environ.get("MAIL_DEFAULT_SENDER")
 
     # bot configurations
     CLIENT_ID = os.environ.get("CLIENT_ID")
+    SLACK_WEBHOOK_SECRET = os.environ.get("SLACK_WEBHOOK_SECRET")
     CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
     VERIFICATION_TOKEN = os.environ.get("VERIFICATION_TOKEN")
     OAUTH_ACCESS_TOKEN = os.environ.get("OAUTH_ACCESS_TOKEN")
@@ -100,7 +100,7 @@ class DevelopmentConfig(Config):
     """Configuration for development environment"""
 
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 
 class TestingConfig(Config):
