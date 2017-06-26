@@ -60,17 +60,21 @@ class Config(object):
 
     # gmail authentication
     MAIL_SUBJECT_PREFIX = '[Arco]'
-    #MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    #MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    # MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    # MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MAIL_SENDER = 'Admin <arcoadmin@arco.com>'
     # MAIL_DEFAULT_SENDER = os.environ.get("MAIL_DEFAULT_SENDER")
 
     # bot configurations
-    CLIENT_ID = os.environ.get("CLIENT_ID")
+    SLACK_CLIENT_ID = os.environ.get("SLACK_CLIENT_ID")
     SLACK_WEBHOOK_SECRET = os.environ.get("SLACK_WEBHOOK_SECRET")
-    CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
-    VERIFICATION_TOKEN = os.environ.get("VERIFICATION_TOKEN")
-    OAUTH_ACCESS_TOKEN = os.environ.get("OAUTH_ACCESS_TOKEN")
+    SLACK_USER = os.environ.get("SLACK_USER")
+    SLACK_CLIENT_SECRET = os.environ.get("SLACK_CLIENT_SECRET")
+    SLACK_VERIFICATION_TOKEN = os.environ.get("SLACK_VERIFICATION_TOKEN")
+    SLACK_USER_WEBHOOK_URL = os.environ.get("SLACK_USER_WEBHOOK_URL")
+    SLACK_SLACKBOT_WEBHOOK_URL = os.environ.get("SLACK_SLACKBOT_WEBHOOK_URL")
+    SLACK_OAUTH_ACCESS_TOKEN = os.environ.get("SLACK_OAUTH_ACCESS_TOKEN")
+    SLACK_BOT_OAUTH_ACCESS_TOKEN = os.environ.get("SLACK_BOT_OAUTH_ACCESS_TOKEN")
     BOT_API_TOKEN = os.environ.get("BOT_API_TOKEN")
     TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
     TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")

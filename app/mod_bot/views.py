@@ -8,7 +8,8 @@ from twilio.rest import Client
 import os
 from flask import request, Response, current_app
 
-slack_client = SlackClient(os.environ.get("BOT_API_TOKEN", None))
+slack_client = SlackClient(os.environ.get("SLACK_BOT_OAUTH_ACCESS_TOKEN", None))
+slack_user = os.environ.get("SLACK_USER")
 twilio_client = Client()
 
 
@@ -21,7 +22,7 @@ def twilio_post():
     response = twiml.TwiML()
     if request.form['From'] == current_app.config.get("USER_NUMBER"):
         message = request.form['Body']
-        slack_client.api_call("im.open", text=message, user='lusinabrian')
+        slack_client.api_call("im.open", text=message, user=slack_user)
     return Response(response.to_xml(), mimetype="text/xml"), 200
 
 

@@ -71,7 +71,7 @@ The second forwarding address you get (one with https) is what we shall use in c
 
 ![twilio](https://www.twilio.com/blog/wp-content/uploads/2016/05/XogwzHUT2l6XJHD0jif88nOzegul_41Xw_EtFdXRQTPwKVxGtAZ19c_CGdlaEf_aXV9ImEyF0TWSOfAnIXWyOckZoKR5aax1pDQly8joE5muES7lILCTPsPI8CcGfstD9OBbSu57.png)
 
-Ensure you add a `/twilio` to the end of the url. As this is where Twilio will send incoming messages received on Slack. More detail will be in the code
+Ensure you add a `/bot/twilio` to the end of the url. As this is where Twilio will send incoming messages received on Slack. More detail will be in the code
 
 That should be it. Once you have all these setup. Run the server with:
 
