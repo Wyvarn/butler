@@ -1,7 +1,5 @@
 """
-Routes for bot
-
-ref=> https://www.twilio.com/blog/2016/05/build-sms-slack-bot-python.html
+Routes for bot module. This module will handle bot messages as well as Twilio requests
 """
 from . import bot
 from slackclient import SlackClient
@@ -44,4 +42,3 @@ def slack_post():
                                       from_=current_app.config.get("TWILIO_NUMBER"),
                                       body=response_message)
     return Response(), 200
-
