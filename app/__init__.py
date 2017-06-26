@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 This defines the application module that essentially creates a new flask app object
 """
@@ -64,18 +63,18 @@ def create_app(config_name):
     config[config_name].init_app(app)
 
     # initialize the db
-    # db.init_app(app)
+    db.init_app(app)
 
     # initialize flask mail
-    # mail.init_app(app)
+    mail.init_app(app)
 
     register_app_blueprints(app)
-    # error_handlers(app)
-    # app_request_handlers(app)
-    # app_logger_handler(app)
+    error_handlers(app)
+    app_request_handlers(app)
+    app_logger_handler(app)
 
     # this will reduce the load time for templates and increase the application performance
-    # app.jinja_env.cache = {}
+    app.jinja_env.cache = {}
 
     return app
 

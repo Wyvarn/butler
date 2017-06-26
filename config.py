@@ -37,13 +37,12 @@ class Config(object):
 
     # configure flask secret key
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'flask_app'
-    SERVER_NAME = os.environ.get("SERVER_NAME", "ARCO")
 
     # DATABASE CONFIGS
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
     SQLALCHEMY_TRACK_MODIFICATIONS = True
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     DATABASE_CONNECT_OPTIONS = {}
 
     SECURITY_PASSWORD_SALT = os.environ.get("SECURITY_PASSWORD_SALT") or 'precious_arco'
