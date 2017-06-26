@@ -88,4 +88,5 @@ You can then proceed to send a message to your Twilio phone number and you shoul
 References:
 
 1. [https://www.twilio.com/blog/2016/05/build-sms-slack-bot-python.html](https://www.twilio.com/blog/2016/05/build-sms-slack-bot-python.html) 
-   
+
+2. [https://github.com/slackapi/Slack-Python-Onboarding-Tutorial](https://github.com/slackapi/Slack-Python-Onboarding-Tutorial)
